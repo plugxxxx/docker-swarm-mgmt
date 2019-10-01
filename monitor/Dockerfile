@@ -14,3 +14,5 @@ RUN grafana-cli plugins install michaeldmoore-multistat-panel
 RUN grafana-cli plugins install vonage-status-panel
 RUN grafana-cli plugins install grafana-simple-json-datasource
 RUN grafana-cli plugins install corpglory-progresslist-panel
+
+RUN grafana-cli plugins update-all
