@@ -43,9 +43,9 @@ services:
       - monitor-net
       
   grafana:
-    # image: grafana_grafana
-    image: grafana/grafana:latest
-    build: .
+    image: grafana_grafana
+    # image: grafana/grafana:latest
+    # build: .
     #volumes: 
     #  - grafana_data:/var/lib/grafana
     environment:
