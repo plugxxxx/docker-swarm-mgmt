@@ -43,7 +43,7 @@ services:
       - monitor-net
       
   grafana:
-    image: grafana_grafana
+    image: softway/grafana:2.0
     # image: grafana/grafana:latest
     # build: .
     #volumes: 
