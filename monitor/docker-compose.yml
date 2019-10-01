@@ -10,7 +10,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.role == manager
+          - node.role == worker
     networks:
       - monitor-net
   
@@ -52,7 +52,7 @@ services:
           cpus: "1.0"
           memory: 50M
       placement:
-        constraints: [node.role == manager]
+        constraints: [node.role == worker]
   
 volumes:
   grafana_data:
