@@ -1,0 +1,49 @@
+# my global config       
+
+global:       
+
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.       
+
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.                       
+
+  # scrape_timeout is set to the global default (10s).       
+
+  # Attach these labels to any time series or alerts when communicating with       
+
+  # external systems (federation, remote storage, Alertmanager).       
+
+  external_labels:       
+
+      monitor: 'codelab-monitor'       
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.       
+
+rule_files:       
+
+  # - "first.rules"       
+
+  # - "second.rules"       
+
+# A scrape configuration containing exactly one endpoint to scrape:       
+
+# Here it's Prometheus itself.       
+
+scrape_configs:       
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # - job_name: 'node-exporter'       
+  #   static_configs:       
+  #     # the targets listed here must match the service names from the docker-compose file       
+  #     - targets: ['manager-001:9100','worker-001:9100']       
+
+  - job_name: 'container'
+    static_configs:
+      # the targets listed here must match the service names from the docker-compose file
+      - targets: ['10.156.52.249:8080','10.156.52.250:8080']
+
+  - job_name: 'BusinessPlus'
+    static_configs:
+      # the targets listed here must match the service names from the docker-compose file
+      - targets: ['203.154.44.170:9182' , '203.154.44.168:9182']
